@@ -3,6 +3,9 @@ import sympy
 import concurrent.futures
 from threading import Thread
 import time
+import csv
+
+
 
 def CalculaPrimoMenor(n,chave):
     referencia = chave
@@ -24,6 +27,9 @@ def CalculaPrimoMaior(n,chave):
             referencia += 1
     return referencia
 
+
+def CalcularPrimoMaior2(n,chave):
+    return sympy.nextprime(chave,ith=n)
 
 def CalcularChave(n,chave):
 
@@ -59,4 +65,20 @@ def resolve_trhread(n,chave):
             primos += future.result()
     return primos
 
-print(CalcularChave(2,15))
+
+
+def leitorcsv():
+    filename = "dados.csv"
+
+    with open (filename,'r') as csvfile:
+        x = None
+        csvreader = csvfile.readlines()
+        x = csvreader
+
+
+        print("Finish")
+
+       
+print(CalculaPrimoMaior(2,15))
+print(CalcularPrimoMaior2(2,15))
+
