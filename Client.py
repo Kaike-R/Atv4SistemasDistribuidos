@@ -1,5 +1,7 @@
 import socket
 import csv
+import time
+
 
 filename = "dados.csv"
 
@@ -17,13 +19,35 @@ def leitorcsv():
 
 
 
+data = leitorcsv()
+port = 50002
+timeout = 5
 
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-  s.connect(("localhost", 50002))
-  print(s)
-  s.sendall(b"1000001,15000")
-  
-  
-  dados = s.recv(1024)
-  print(f"Resposta do servidor: {dados.decode()}")
+count2 = 0
+
+
+while count2 < 31:
+  timeout_start = time.time()
+  count = 0
+  while time.time()<timeout_start+timeout:
+    
+    #for lines in data :
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+      s.connect(("localhost", port))
+      #s.setblocking(False)
+    except:
+      print("Não conectou")
+    print(s)
+    s.sendall(data[count].encode())
+
+      
+    dados = s.recv(1024)
+    print(f"Resposta do servidor: {dados.decode()}")
+    s.close()
+    count = count+1
+  print(count)
+  count2 = count2 + 1
+
+    

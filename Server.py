@@ -4,20 +4,20 @@ import concurrent.futures
 from threading import Thread
 import time
 
-# def CalculaPrimoMenor(n,chave):
-#     referencia = chave
-#     primos = 0
-#     while (primos != n):
-#         if sympy.isprime(referencia) == True:
-#             primos += 1
-#         if (primos != n):
-#             referencia = referencia - 1
-#         if (referencia < 0):
-#             return None        
-#     return referencia
-
 def CalculaPrimoMenor(n,chave):
-    return sympy.prevprime(chave,ith=n)
+    referencia = chave
+    primos = 0
+    while (primos != n):
+        if sympy.isprime(referencia) == True:
+            primos += 1
+        if (primos != n):
+            referencia = referencia - 1
+        if (referencia < 0):
+            return None        
+    return referencia
+
+# def CalculaPrimoMenor(n,chave):
+#     return sympy.prevprime(chave,ith=n)
 
 
 # def CalculaPrimoMaior(n,chave):
