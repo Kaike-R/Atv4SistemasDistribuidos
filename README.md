@@ -8,6 +8,6 @@ Nesse relatório estarão os gráficos da nossa solução para o problema propos
 
 ![Alt text](Grafico1.PNG?raw=true "Title")
 
-![](RackMultipart20211008-4-hy82k1_html_c891b5845181d971.gif)
+![Alt text](Grafico2.PNG?raw=true "Title")
 
 Link para o GitHub :[https://github.com/Kaike-R/Atv4SistemasDistribuidos](https://github.com/Kaike-R/Atv4SistemasDistribuidos%20)
