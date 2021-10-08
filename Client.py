@@ -1,6 +1,7 @@
 import socket
 import csv
 import time
+import datetime
 
 
 filename = "dados.csv"
@@ -21,9 +22,9 @@ def leitorcsv():
 
 data = leitorcsv()
 port = 50002
-timeout = 5
-
-
+timeout = 4
+resultadoTime = []
+resultadoValue = []
 count2 = 0
 
 
@@ -47,7 +48,18 @@ while count2 < 31:
     print(f"Resposta do servidor: {dados.decode()}")
     s.close()
     count = count+1
-  print(count)
+  resultadoTime.append(time.time()-timeout_start)
+  resultadoValue.append(count)
   count2 = count2 + 1
+  
+with open('result.csv', 'w', newline='') as file:
+  writer = csv.writer(file)
+  temp = []
+  writer.writerow(["Tempo","Resultado"])
+
+
+  for lines in range(len(resultadoTime)):
+    temp = [resultadoTime[lines],resultadoValue[lines]]
+    writer.writerow(temp)
 
     

@@ -31,6 +31,18 @@ def CalculaPrimoMaior(n,chave):
 def CalcularPrimoMaior2(n,chave):
     return sympy.nextprime(chave,ith=n)
 
+
+def CalculaPrimoMenor2(n,chave):
+    referencia = chave
+    primos = 0
+    while (primos != n):
+        if sympy.isprime(referencia) == True:
+            primos += 1
+        if (primos != n):
+            referencia += 1
+    return referencia
+    
+    return sympy.prevprime(chave)
 def CalcularChave(n,chave):
 
     
@@ -78,7 +90,14 @@ def leitorcsv():
 
         print("Finish")
 
-       
-print(CalculaPrimoMaior(2,15))
-print(CalcularPrimoMaior2(2,15))
+
+
+lista = []
+lista.append(1)
+lista.append(2)
+lista.append(3)
+
+print(CalculaPrimoMenor2(2,15))
+print(CalculaPrimoMenor(2,15))
+
 
